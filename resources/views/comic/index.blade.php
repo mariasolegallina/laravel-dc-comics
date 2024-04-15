@@ -13,7 +13,7 @@
             @endforeach
             <div class="d-grid gap-2 d-md-block">
                 <a href="{{ route('comics.create') }}" class="btn btn-secondary">Aggiungi</a>
-                <a href="#" class="btn btn-danger">Elimina</a>
+                {{-- <a href="#" class="btn btn-danger">Elimina</a> --}}
             </div>
         </div>
     </div>

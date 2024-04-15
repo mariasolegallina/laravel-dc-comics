@@ -4,7 +4,9 @@
 <div class="container my-3">
     <h1 class="fs-4 mb-4">Aggiungi un fumetto</h1>
 
-    <form>
+    <form action="{{route('comics.store')}}" method="POST">
+        @csrf
+
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
             <input type="text" class="form-control" name="title" id="title" required>
