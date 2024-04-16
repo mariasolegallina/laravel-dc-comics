@@ -33,15 +33,15 @@ class ComicController extends Controller
     {
 
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'thumb' => 'required',
-            'price' => 'required',
-            'series' => 'required',
+            'title' => 'required|max:255',
+            'description' => 'required|max:1000',
+            'thumb' => 'required|max:1000',
+            'price' => 'required|max:8',
+            'series' => 'required|max:100',
             'sale_date' => 'required',
-            'type' => 'required',
-            'artists' => '',
-            'writers' => '',
+            'type' => 'required|max:255',
+            'artists' => 'max:1000',
+            'writers' => 'max:1000',
         ]);
 
         // dd($request->title);
