@@ -91,6 +91,9 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+
+        $this->validation($request->all());
+
         $comic->title = $request->title;
         $comic->description = $request->description;
         $comic->thumb = $request->thumb;
@@ -126,6 +129,9 @@ class ComicController extends Controller
             'type' => 'required|max:255',
             'artists' => 'max:1000',
             'writers' => 'max:1000',
+        ], [
+            'required' => 'Questo campo è obbligatorio',
+            'max' => 'Puoi inserire al massimo :max caratteri',
         ])->validate();
     }
 }

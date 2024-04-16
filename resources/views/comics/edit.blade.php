@@ -10,48 +10,67 @@
 
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
-            <input type="text" class="form-control" name="title" id="title" required value="{{$comic->title}}">
+            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{$comic->title}}">
+            <span>@error('title') {{$message}} @enderror</span>
         </div>
 
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
-            <textarea type="text" class="form-control" name="description" id="description" required>{{$comic->description}}</textarea>
+            <textarea type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description">{{$comic->description)}}</textarea>
+            <span>@error('description') {{$message}} @enderror</span>
         </div>
 
         <div class="mb-3">
             <label for="thumb" class="form-label">Immagine</label>
-            <input type="text" class="form-control" name="thumb" id="thumb" required value="{{$comic->thumb}}">
+            <input type="text" class="form-control @error('thumb') is-invalid @enderror" name="thumb" id="thumb" value="{{$comic->thumb)}}">
+            <span>@error('thumb') {{$message}} @enderror</span>
         </div>
 
         <div class="mb-3">
             <label for="price" class="form-label">Prezzo</label>
-            <input type="text" class="form-control" name="price" id="price" required value="{{$comic->price}}">
+            <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" id="price" value="{{$comic->price)}}">
+            <span>@error('price') {{$message}} @enderror</span>
         </div>
 
         <div class="mb-3">
             <label for="series" class="form-label">Serie</label>
-            <input type="text" class="form-control" name="series" id="series" required value="{{$comic->series}}">
+            <input type="text" class="form-control @error('series') is-invalid @enderror" name="series" id="series" value="{{$comic->series)}}">
+            <span>@error('series') {{$message}} @enderror</span>
         </div>
 
         <div class="mb-3">
             <label for="sale_date" class="form-label">Data di pubblicazione</label>
-            <input type="date" class="form-control" name="sale_date" id="sale_date" required value="{{$comic->sale_date}}">
+            <input type="date" class="form-control  @error('sale_date') is-invalid @enderror" name="sale_date" id="sale_date" value="{{$comic->sale_date)}}">
+            <span>@error('sale_date') {{$message}} @enderror</span>
         </div>
 
         <div class="mb-3">
             <label for="type" class="form-label">Tipo</label>
-            <input type="text" class="form-control" name="type" id="type" required value="{{$comic->type}}">
+            <input type="text" class="form-control  @error('type') is-invalid @enderror" name="type" id="type" value="{{$comic->type)}}">
+            <span>@error('type') {{$message}} @enderror</span>
         </div>
 
         <div class="mb-3">
             <label for="artists" class="form-label">Artisti</label>
-            <input type="text" class="form-control" name="artists" id="artists" value="{{$comic->artists}}">
+            <input type="text" class="form-control @error('artists') is-invalid @enderror" name="artists" id="artists" value="{{$comic->artists)}}">
+            <span>@error('artists') {{$message}} @enderror</span>
         </div>
 
         <div class="mb-3">
             <label for="writers" class="form-label">Scrittori</label>
-            <input type="text" class="form-control" name="writers" id="writers" value="{{$comic->writers}}">
+            <input type="text" class="form-control @error('writers') is-invalid @enderror" name="writers" id="writers" value="{{$comic->writers)}}">
+            <span>@error('writers') {{$message}} @enderror</span>
         </div>
+
+        {{-- @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>   
+        </div>
+        @endif --}}
 
         <button type="submit" class="btn btn-primary">Salva le modifiche</button>
       </form>
