@@ -53,7 +53,7 @@
             <input type="text" class="form-control" name="writers" id="writers" value="{{$comic->writers}}">
         </div>
 
-        <button type="submit" class="btn btn-primary">Crea</button>
+        <button type="submit" class="btn btn-primary">Salva le modifiche</button>
       </form>
 </div>
 
