@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
@@ -32,17 +33,19 @@ class ComicController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required|max:1000',
-            'thumb' => 'required|max:1000',
-            'price' => 'required|max:8',
-            'series' => 'required|max:100',
-            'sale_date' => 'required',
-            'type' => 'required|max:255',
-            'artists' => 'max:1000',
-            'writers' => 'max:1000',
-        ]);
+        $this->validation($request->all());
+
+        // $request->validate([
+        // 'title' => 'required|max:255',
+        // 'description' => 'required|max:1000',
+        // 'thumb' => 'required|max:1000',
+        // 'price' => 'required|max:8',
+        // 'series' => 'required|max:100',
+        // 'sale_date' => 'required',
+        // 'type' => 'required|max:255',
+        // 'artists' => 'max:1000',
+        // 'writers' => 'max:1000',
+        // ]);
 
         // dd($request->title);
         $newComic = new Comic();
@@ -109,5 +112,20 @@ class ComicController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    private function validation($data)
+    {
+        $validator = Validator::make($data, [
+            'title' => 'required|max:255',
+            'description' => 'required|max:1000',
+            'thumb' => 'required|max:1000',
+            'price' => 'required|max:8',
+            'series' => 'required|max:100',
+            'sale_date' => 'required',
+            'type' => 'required|max:255',
+            'artists' => 'max:1000',
+            'writers' => 'max:1000',
+        ])->validate();
     }
 }
