@@ -1,20 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container my-3">
-        <div class="row row-cols-4 row-gap-3">
+<div id="comics">
+    
+    <div class="jumbo"></div>
+
+    <div class="container">
+        <h2 class="page-title">Comics</h2>
+
+        <div class="comics-list">
             @foreach ($comics as $comic)
-            <div class="col d-flex align-items-stretch">
-                <div class="card card-body">
-                    <h2 class="fs-5 fw-bold flex-grow-1 pb-1">{{ $comic->title }}</h2>
-                    <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Visualizza</a>
+            <div class="comic">
+                <img class="comic-cover" src="{{ $comic->thumb }}">
+                <div class="comic-body flex-fill">
+                    <h3 class="comic-title">{{ $comic->title }}</h3>
+                    <span class="price">{{ $comic->price }}</span>
                 </div>
+                <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Visualizza</a>
             </div>
             @endforeach
-            <div class="d-grid gap-2 d-md-block">
-                <a href="{{ route('comics.create') }}" class="btn btn-secondary">Aggiungi</a>
-                {{-- <a href="#" class="btn btn-danger">Elimina</a> --}}
-            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-block">
+            <a href="{{ route('comics.create') }}" class="btn btn-secondary">Aggiungi</a>
+            {{-- <a href="#" class="btn btn-danger">Elimina</a> --}}
         </div>
     </div>
+</div>
 @endsection
