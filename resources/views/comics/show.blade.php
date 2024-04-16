@@ -7,6 +7,7 @@
             <div>
                 <h1 class="fs-4">{{ $comic->title }}</h1>
                 <p>{{ $comic->description }}</p>
+                <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-secondary">Modifica</a>
             </div>
         </div>
     </div>
