@@ -2,12 +2,14 @@
 
     <nav class="d-flex justify-content-between align-items-center">
         <!-- logo -->
-        <img id="logo" src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="Logo DC">
+        <a href="{{route('home')}}">
+            <img id="logo" src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="Logo DC">
+        </a>
 
         <!-- nav-menu -->
         <ul style="margin-bottom: 0;" class="d-flex">
             <li><a href="#">characters</a></li>
-            <li class="active"><a href="#">comix</a></li>
+            <li class="active"><a href="{{route('comics.index')}}">comix</a></li>
             <li><a href="#">movies</a></li>
             <li><a href="#">tv</a></li>
             <li><a href="#">games</a></li>
